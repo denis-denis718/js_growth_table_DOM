@@ -1,4 +1,5 @@
 'use strict';
+
 const table = document.querySelector('table');
 
 const appendRowBtn = document.querySelector('.append-row');
@@ -31,6 +32,7 @@ function updateButtons() {
 appendRowBtn.addEventListener('click', () => {
   const colCount = getColCount();
   const newRow = table.insertRow();
+
   for (let i = 0; i < colCount; i++) {
     newRow.insertCell();
   }
@@ -48,6 +50,7 @@ removeRowBtn.addEventListener('click', () => {
 // Добавление колонки
 appendColBtn.addEventListener('click', () => {
   const rowCount = getRowCount();
+
   for (let i = 0; i < rowCount; i++) {
     table.rows[i].insertCell();
   }
@@ -57,8 +60,10 @@ appendColBtn.addEventListener('click', () => {
 // Удаление колонки
 removeColBtn.addEventListener('click', () => {
   const colCount = getColCount();
+
   if (colCount > 2) {
     const rowCount = getRowCount();
+
     for (let i = 0; i < rowCount; i++) {
       table.rows[i].deleteCell(-1);
     }
